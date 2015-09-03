@@ -1,5 +1,4 @@
 -module(rec).
-
 -compile(export_all).
 
 len([]) -> 0;
