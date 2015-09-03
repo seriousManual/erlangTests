@@ -9,6 +9,8 @@ rpm("+", [X1, X2 | T]) -> [X2 + X1 | T];
 rpm("-", [X1, X2 | T]) -> [X2 - X1 | T];
 rpm("*", [X1, X2 | T]) -> [X2 * X1 | T];
 rpm("/", [X1, X2 | T]) -> [X2 / X1 | T];
+rpm("sum", Stack) -> [lists:foldl(fun(N, Carry) -> Carry + N end, 0, Stack)];
+rpm("prod", Stack) -> [lists:foldl(fun erlang:'*'/2, 1, Stack)];
 rpm(InputElement, Stack) -> [convert(InputElement) | Stack].
 
 convert(N) ->
